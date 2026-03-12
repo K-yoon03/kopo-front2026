@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function getLotto(){
+            document.getElementById("congratulation").style.display='none';
+            let lotto = [0,0,0,0,0,0];
+            for(let i = 0; i < lotto.length; i++){
+                let newNum = parseInt(Math.random()*Date().split(":")[1] * 1000 % 45 + 1)
+                for(let j = 0; j < i; j++){
+                    if(lotto[j] == newNum){
+                        console.log(`현재 수 : ${newNum}`)
+                        console.log(`중복된 수 : ${lotto[j]}`)
+                        while(newNum == lotto[j]){
+                            newNum = parseInt(Math.random()*Date().split(":")[1] * 1000 % 45 + 1)
+                        }
+                        console.log(`새로뽑은 수 : ${newNum}`)
+                    }
+                }
+                lotto[i] = newNum;
+            }
+            console.table(lotto);
+            let lottoSpans = document.getElementsByClassName("lottoNums");
+            while(lottoSpans.length > 0){
+                lottoSpans[0].remove()
+            }
+            let container = document.getElementById("LottoNum");
+            container.innerHTML = "";
+
+            for(let i = 0; i < lotto.length; i++){
+                setTimeout(()=>{
+                    container.innerHTML += `<span class="lottoNums">${lotto[i]}</span>`
+                }, i * 500);
+            }
+            setTimeout(
+                ()=>{
+                    document.getElementById("congratulation").style.display = 'block';
+                }
+            , 3000)
+        }
+    </script>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        .header{
+            height:60px;
+            background-color: gray;
+            color:white;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            font-size:36px;
+            font-weight: bold;
+        }
+        .container{
+            display:flex;
+        }
+        .left{
+            width:300px;
+            background-color: lightgray;
+            padding:20px;
+            height:100vh;
+        }
+        .left-content{
+            display: flex;
+            flex-direction: column;
+            gap:50px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .result{
+            display: flex;
+            gap:50px;
+            justify-items: center;
+            align-items: center;
+        }
+        .lottoNums{
+            display:inline-flex;
+            justify-content:center;
+            align-items:center;
+
+            width:50px;
+            height:50px;
+            margin:5px;
+
+            border-radius:50%;
+            background:orange;
+            color:white;
+            font-weight:bold;
+
+            transform:scale(0);
+            animation:pop 0.4s forwards;
+        }
+        #generateBtn{
+            padding:30px;
+            border-radius: 15px;
+            position:relative;
+            left:30px;
+            top:300px;
+            width: 300px;
+            background-color: lightgray;
+            border-color: gray;
+        }
+        #generateBtn:Hover{
+            background-color: gray;
+            color:white;
+        }
+
+        @keyframes pop{
+            0%{
+                transform:scale(0);
+            }
+            80%{
+                transform:scale(1.2);
+            }
+            100%{
+                transform:scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+    로또 번호 생성기
+    </div>
+    <div class="container">
+    <div class="left">
+        <div class="left-content">
+            <div>아주 과학적인 방법으로 생성하는 로또 번호</div>
+            <div>실제 당첨자 경험 多</div>
+            <div>취미로 일하는 직장인이 되어봅시다!</div>
+            <div>폼나는 건물을 가져봅시다!</div>
+        </div>
+    </div>
+    <div class="main">
+        <button onclick="getLotto()" id="generateBtn">번호 생성</button>
+    <div id="LottoNum" class="result"></div>
+    <div>
+        <h1 id="congratulation" style="display:none">당첨을 미리 축하드립니다!!</h1>
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>

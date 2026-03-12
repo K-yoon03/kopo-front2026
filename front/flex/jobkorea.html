@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Header{
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+        .Header-left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Header-right>input{
+            width:150px;
+            height:60px;
+            border-radius: 20px;
+            background-color: white;
+            border:lightgray 1px solid;
+            font-size: 17px;
+        }
+        #search-form{
+            margin-left: 30px;
+            height: 50px;
+            width:300px;
+            border-radius: 30px;
+        }
+        .nav{
+            display: flex;
+            align-items: start;
+            padding-bottom: 20px;
+            border-bottom: solid 1px lightgray;
+        }
+        .nav-content{
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            gap:45px;
+        }
+        .nav>div>div{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="Header">
+        <div class="Header-left">
+            <img src="https://file2.jobkorea.co.kr/Net/Mng/Image/LogoImage?FN=2026/01/GNB%20%EC%98%81%EC%97%AD%20%EC%83%81%EB%8B%A8%20%EB%A1%9C%EA%B3%A0_JK.gif" alt="">
+            <input id="search-form" type="text" placeholder="JOB 검색">
+        </div>
+        <div class="Header-right">
+            <input type="button" style="color:blue" value="회원가입/로그인">
+            <input type="button" value="기업 서비스">
+        </div>
+    </div>
+    <div class="nav">
+        <div class="nav-content">
+            <div class="" style="order: 3;">JOB 찾기</div>
+            <div class="">합격축하금</div>
+            <div class="" style="order: 1;">공채정보</div>
+            <div class="">신입·인턴</div>
+            <div class="">기업·연봉</div>
+            <div class="">콘텐츠</div>
+            <div class="">취업톡톡</div>
+        </div>
+    </div>
+    <h1 style="font-size: 80px;">
+        푸하하╰(*°▽°*)╯ 포항항╰(*°▽°*)╯<br>
+        히히╰(*°▽°*)╯푸헤헤╰(*°▽°*)╯<br>
+        낄낄낄╰(*°▽°*)╯하하하╰(*°▽°*)╯<br>
+        햄--볶 ☆*: .｡. o(≧▽≦)o .｡.:*☆ 해---용<br>
+        좋아용 ( • ω •)y<br>
+    </h1>
+    <p id="p1" style="font-size:50px">안녕</p>
+    <script>
+        console.log(typeof(null));
+        console.log(typeof(undefined));
+        console.log(typeof(0));
+        console.log(typeof(1));
+        console.log(typeof(1.1));
+        console.log(typeof('a'));
+        console.log(typeof(true));
+        console.log(typeof({}));
+        console.log(typeof([]));
+        console.log(typeof(function(){}));
+        console.log(typeof(/./));
+        console.log(typeof(new Date()));
+        console.log(typeof(window));
+        console.log(typeof(document));
+        console.log(typeof(document.body));
+    </script>
+</body>
+</html>

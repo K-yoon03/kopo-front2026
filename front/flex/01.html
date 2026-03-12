@@ -10,17 +10,32 @@
             width: 700px;
             height: 700px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: end;
+            justify-content: space-between;
         }
-        .wrap>div{
+        .wrap>div>div{
             color: black;
             line-height: 100px;
             text-align: center;
             font-size: 40px;
             width: 100px;
             height: 100px;
+        }
+        .left-side{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .center-side{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .right-side{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: end;
         }
         .blue{
             background-color: lightblue;
@@ -37,16 +52,35 @@
         .cyan{
             background-color: lightcyan;
         }
+        .orange{
+            background-color:orange;
+        }
+        .white{
+            background-color: white;
+        }
+        .pink{
+            background-color: pink;
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="blue">A</div>
-        <div class="red">B</div>
-        <div class="green">C</div>
-        <div class="purple">D</div>
-        <div class="cyan">E</div>
+        <div class="left-side">
+            <div class="blue">A</div>
+            <div class="red">B</div>
+            <div class="green">C</div>
+        </div>
+        <div class="center-side">
+            <div class="purple">D</div>
+            <div class="cyan">E</div>
+        </div>
+        <div class="right-side">
+            <div class="orange">F</div>
+            <div class="white">G</div>
+            <div class="pink">H</div>
+        </div>
     </div>
-    <h1 style="font-size: 120px;"></h1>
+    <h1 style="font-size: 120px;">긍데 지금 모하는거야?..
+    </h1>
 </body>
 </html>
