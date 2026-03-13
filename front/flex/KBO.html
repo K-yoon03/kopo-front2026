@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function makeTeamList(data, num){
+            document.getElementById("teamList-div").innerHTML += (
+                `<h1>${data.list[num].cpTeamId} 
+                ${data.list[num].nameMain} 
+                ${data.list[num].rank.rank}등 
+                ${data.list[num].rank.game}회 게임 
+                ${data.list[num].rank.win}회 승리 
+                ${data.list[num].rank.draw}회 무승부 
+                ${data.list[num].rank.loss}회 패배 
+                승률 : ${data.list[num].rank.wpct} ::
+                연속 ${data.list[num].rank.streak}</h1>`)
+        }
+        const jsonUrl = "https://prof-jwchi.github.io/kopo-front2026/Json/baseball.json";
+        fetch(jsonUrl).then(
+            response => {
+                return response.json();
+            }
+        )
+        .then(
+            data=>{
+                console.log(data);
+                console.log(data.list[0].cpTeamId);
+                for(let i = 0; i < data.list.length ; i++){
+                    console.log(data.list[i]);
+                    makeTeamList(data, i);
+                }
+            }
+        )
+    </script>
+</head>
+<body>
+    <div id="teamList-div"></div>
+</body>
+</html>
