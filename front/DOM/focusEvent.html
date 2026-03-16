@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    할일 : <input type="text" id="input"> (할일을 적어주세요)
+    <input type="button" id="action" value="보내기"><br>
+    번호 : <input type="number" id="num"> (삭제할 번호)
+    <input type="button" id="delete" value="삭제하기">
+    <div id="error"></div>
+
+    <ul id="list">
+        
+    </ul>
+    <script>
+        const inputElem = document.getElementById("input");
+        const actionBtn = document.getElementById('action');
+        const numElem = document.getElementById('num');
+        const deleteBtn = document.getElementById('delete');
+        const list = document.getElementById('list');
+        let a = 0;
+        let buttonNumber = 0;
+        actionBtn.addEventListener('click', ()=>{
+            const value = inputElem.value;
+            buttonNumber = a;
+            window.localStorage.setItem(a, value);
+            list.innerHTML+= `<li id=${a}>${a + 1} : ${value}</li>`
+            a++;
+        })
+
+        deleteBtn.addEventListener('click', ()=>{
+            let value = numElem.value;
+            value--;
+            window.localStorage.removeItem(value)
+            const targetList = document.getElementById(value);
+            console.log(targetList);
+            list.removeChild(targetList);
+        })
+        
+    </script>
+</body>
+</html>

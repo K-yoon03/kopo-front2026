@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btns">
+        <div id ="Three_btn">
+            <div id="First-div" onClick="firstDivClickHandler">첫번째 DIV 요소</div>
+            <div id="Second-div">두번째 DIV 요소</div>
+            <div id="Third-div">세번째 DIV 요소</div>
+        </div>
+    </div>
+    <script>
+        function firstDivClickHandler(){
+            let Num = 0;
+            Num++;
+            document.getElementById('First-div').innerHTML = `첫번째 DIV 요소 : ${Num}번 클릭됨.`;
+        }
+        document.getElementById('Second-div').onclick = (e)=>{
+            let Num = 0;
+            Num++;
+            document.getElementById('Second-div').innerHTML = `두번째 DIV 요소 : ${Num}번 클릭됨.`;
+        }
+        const third = document.getElementById('Third-div');
+        third.addEventListener('click', ()=>{
+            let Num = 0;
+            Num++;
+            document.getElementById('Third-div').innerHTML = `세번째 DIV 요소 : ${Num}번 클릭됨.`;
+        })
+
+        const btns = document.getElementById('btns')
+        btns.addEventListener('click', ()=>{
+            console.log('btns Clicked!');
+        })
+        const three_btn = document.getElementById('Three_btn');
+        three_btn.addEventListener('click', ()=>{
+            console.log('three_btn Clicked!')
+        })
+    </script>
+</body>
+</html>
